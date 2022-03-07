@@ -11,6 +11,7 @@ class QuoteList extends StatefulWidget {
   @override
   _QuoteListState createState() => _QuoteListState();
 }
+
 class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes=[
     Quote (author:'Aryan kumar',text:'is simply dummy text of the printing and typesetting industry'),
