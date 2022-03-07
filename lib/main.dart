@@ -7,6 +7,7 @@ void main() =>
 class QuoteList extends StatefulWidget {
   const QuoteList({Key? key}) : super(key: key);
 
+
   @override
   _QuoteListState createState() => _QuoteListState();
 }
