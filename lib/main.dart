@@ -18,17 +18,42 @@ class _QuoteListState extends State<QuoteList> {
     Quote (author:'XYZ jackson',text:'is simply dummy text of the printing and typesetting industry'),
     Quote (author:'ABC anderson',text:'is simply dummy text of the printing and typesetting industry'),
   ];
+  Widget quoteTemplate(quote){
+    return Card(
+      margin: EdgeInsets.fromLTRB(10.0,10.0,10.0,10.0),
+      child: Column(
+         children:<Widget>[
+        Text(
+          quote.text,
+              style: TextStyle(
+        fontSize: 14.0,
+      color: Colors.black,
+    )
+        ),
+    SizedBox(height: 10.0,),
+    Text(
+    quote.author,
+    style: TextStyle(
+    fontSize: 14.0,
+    color: Colors.black,
+    ),
+    ),
+
+      ]
+      )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[400],
       appBar: AppBar(
         backgroundColor: Colors.red,
          title: Text('Quotes'),
     centerTitle: true,
     ),
       body : Column(
-        children: quotes.map((quote)=> Text('${quote.text} - ${quote.author}')).toList(),
+        children: quotes.map((quote)=> quoteTemplate(quote)).toList(),
     ),);
 
   }
