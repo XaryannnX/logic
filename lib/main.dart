@@ -48,6 +48,8 @@ class _QuoteListState extends State<QuoteList> {
   final Quote quote;
  QuoteCard({ required this.quote });
 
+ //ss
+
   @override
   Widget build(BuildContext context) {
     return Card(
