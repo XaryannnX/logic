@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'class.dart';
+import 'quote_card.dart';
 
 void main() => runApp(const MaterialApp(
       home: QuoteList(),
@@ -24,9 +25,6 @@ class _QuoteListState extends State<QuoteList> {
         author: 'ABC anderson',
         text: 'is simply dummy text of the printing and typesetting industry'),
   ];
-  Widget quoteTemplate(quote) {
-    return  QuoteCard (quote: quote);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,42 +36,16 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: true,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+        children: quotes
+            .map((quote) => QuoteCard(
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                }))
+            .toList(),
       ),
     );
-  }
-}
-
- class QuoteCard extends StatelessWidget {
-  final Quote quote;
- QuoteCard({ required this.quote });
-
- //ss
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(children: <Widget>[
-            Text(
-                '${quote.text}',
-                style: TextStyle(
-                  fontSize: 14.0,
-                  color: Colors.black,
-                )),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              '${quote.author}',
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.black,
-              ),
-            ),
-          ]),
-        ));
   }
 }
